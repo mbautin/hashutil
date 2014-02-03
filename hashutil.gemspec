@@ -11,10 +11,14 @@ Gem::Specification.new do |gem|
   gem.homepage      = "http://github.com/mbautin/#{GEM_NAME}"
 
   gem.executables   = `git ls-files -- bin/*`.split('\n').map{ |f| File.basename(f) }
-  gem.files         = `git ls-files`.split('\n').map(&:strip)
+  gem.files         = `git ls-files`.split("\n").map(&:strip)
   gem.test_files    = `git ls-files -- {test,spec,features}/*`.split('\n')
   gem.name          = GEM_NAME
   gem.require_paths = ['lib']
   gem.version       = HashUtil::VERSION
+
+  gem.add_dependency 'json'
+
   gem.add_development_dependency 'rake'
+
 end
